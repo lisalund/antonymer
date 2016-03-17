@@ -10,3 +10,10 @@ def index(request):
 
 def login(request):
 	return render(request, 'antonyms/login.html', {})
+
+#@login_required
+def play(request):
+	return render(request, 'antonyms/play.html', {})
+
+def highscores(request):
+	return render(request, 'antonyms/highscores.html', {})
