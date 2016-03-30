@@ -22,5 +22,5 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('antonymapp.urls')),
-    url(r'^accounts/login/$', login, {'template_name': 'login.html'})
+    url(r'^accounts/login/$', login),
 ]

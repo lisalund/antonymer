@@ -1,11 +1,11 @@
 {% extends 'antonymapp/base.html' %}
 
 {% block content %}
-	<h1> Hello, welcome to the index! </h1>
+	<h1> Hej och välkommen till vår sida! </h1>
 	<p>
-		<a href="/login">Click here to log on!</a>
+		<a href="{% url 'django.contrib.auth.views.login' %}">Logga in!</a>
 	</p>
 	<p>
-		<a href="/play">Click here to play!</a>
+		<a href="/play">Spela!</a>
 	</p>
 {% endblock %}

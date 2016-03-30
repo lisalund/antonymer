@@ -1,8 +1,14 @@
 {% extends 'antonymapp/base.html' %}
 
-<h1>login</h1>
+{% block content %}
 
-<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+{% if form.errors %}
+	<h1>Var god försök igen.</h1>
+{% else %}
+	<h1>Välkommen att logga in.</h1>
+{% endif %}
+
+<form method="post" action="{% url 'django.contrib.auth.views.login' %}?next={{ request.GET.next }}">
 {% csrf_token %}
 <table>
 	<tr>
@@ -16,5 +22,4 @@
 </table>
 <input type="submit" value="Login" />
 </form>
-
 {% endblock %}
