@@ -5,15 +5,15 @@ from django.contrib.auth.decorators import login_required #Adds a decorator for 
 # to make use of login_required: add @login_required above the def-line for view.
 
 def index(request):
-	return render(request, 'antonyms/index.html', {})
+	return render(request, 'antonymapp/index.html', {})
 
 
 def login(request):
-	return render(request, 'templates/login.html', {})
+	return render(request, 'antonymapp/login.html', {})
 
 @login_required
 def play(request):
-	return render(request, 'antonyms/play.html', {})
+	return render(request, 'antonymapp/play.html', {})
 
 def highscores(request):
-	return render(request, 'antonyms/highscores.html', {})
+	return render(request, 'antonymapp/highscores.html', {})
