@@ -3,9 +3,9 @@
 {% block content %}
 	<h1> Hej och välkommen till vår sida! </h1>
 	<p>
-		<a href="{% url 'django.contrib.auth.views.login' %}">Logga in!</a>
+		<a href="{% url 'django.contrib.auth.views.login' %}">Logga in</a>
 	</p>
 	<p>
-		<a href="/play">Spela!</a>
+		<a href="{% url 'create_user' %}" class="user-text">Skapa användare</a>
 	</p>
 {% endblock %}
