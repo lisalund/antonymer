@@ -20,7 +20,7 @@ class WordPair(models.Model):
 	five = models.IntegerField(default=0);
 
 	def calc_mean():
-		mean = int(round((ones*1+two*2+three*3+four*4+five*5)/(ones+two+three+four+five))
+		mean = int(round((ones*1+two*2+three*3+four*4+five*5)/(ones+two+three+four+five)))
 		return mean
 
 	def __str__(self):
