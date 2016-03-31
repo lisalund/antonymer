@@ -1,8 +1,7 @@
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.utils import timezone
 from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required  #Adds a decorator for pages that need login. If the user isn't logged in, take them to login page before.
-# to make use of login_required: add @login_required above the def-line for view.
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
@@ -36,7 +35,7 @@ def create_user(request):
 def play(request):
     if request.method == 'POST':
         form = SomeForm(request.POST)
-        print form.is_valid() 
+        #print form.is_valid() 
         if form.is_valid():
             picked = form.cleaned_data.get('picked')
             # do something with your results

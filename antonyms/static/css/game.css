@@ -45,9 +45,11 @@ h1, h2, h3, h4 {
 ol.score-list li {
     width: 100%;
     position: relative;
+    list-style-type: none;
 }
 
 ol.score-list li span:first-child, ol.score-list li span:last-child {
     width:50%;
     display:inline-block;
+    list-style-type: none;
 }
