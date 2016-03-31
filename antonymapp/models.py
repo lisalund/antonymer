@@ -24,7 +24,7 @@ class WordPair(models.Model):
 		return mean
 
 	def __str__(self):
-		return self.word1+self.word2
+		return self.word1+" "+self.word2
 
 class UserProfile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
