@@ -37,3 +37,17 @@ h1, h2, h3, h4 {
     font-size: 26pt;
     margin-right: 20px;
 }
+
+.high-score {
+    color: #ff8741;
+}
+
+ol.score-list li {
+    width: 100%;
+    position: relative;
+}
+
+ol.score-list li span:first-child, ol.score-list li span:last-child {
+    width:50%;
+    display:inline-block;
+}

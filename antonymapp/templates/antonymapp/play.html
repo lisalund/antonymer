@@ -1,5 +1,8 @@
 {% extends 'antonymapp/base.html' %}
 {% block content %}
-	<h1> Hello, this is where the game will be! It will probably have a login_required... </h1>
-	<p>And here's a <a href="/highscores">link to a dummy highscores page.</a></p>
+	<form method='post'>
+		{% csrf_token %}
+	    {{ form.as_p }}
+	    <input type='submit' value='submit'>
+	</form>
 {% endblock %}

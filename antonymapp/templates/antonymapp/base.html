@@ -1,23 +1,33 @@
 {% load staticfiles %}
+{% load antonymapp_tags %}
 <html>
-<head> 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="{% static 'css/game.css' %}">
-<link href='https://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
-<title>Antonymer</title>
-</head>
-<body>
-    <div class="page-header">
-        <h1><a href="/">Antonymer</a></h1>
-    </div>
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
-            {% block content %}
-            {% endblock %}
+    <head> 
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/game.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
+        <title>Antonymer</title>
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Antonymer</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+                <div class="col-md-3" style="background-color:lavender;">
+                    {% get_top_list as top_list %}
+                    <ol class="score-list">
+                    {% for top_user in top_list %}
+                        <li><span>{{ top_user.username }}</span><span>{{ top_user.userprofile.score }} </span></li>
+                    {% endfor %}
+                    </ol> 
+                </div>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

@@ -127,3 +127,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/play'
+
+AUTH_PROFILE_MODULE = "antonymapp.UserProfile"
