@@ -36,13 +36,10 @@ def create_user(request):
 def play(request):
     if request.method == 'POST':
         form = SomeForm(request.POST)
-        print form
-        print form.is_valid()
-        print form.errors
+        print form.is_valid() 
         if form.is_valid():
             picked = form.cleaned_data.get('picked')
-            print picked
-            print picked
+            # do something with your results
             picked = int(picked[0])
             player = request.user.userprofile
             player.score = player.score + picked
