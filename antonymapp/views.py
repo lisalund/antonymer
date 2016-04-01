@@ -36,7 +36,7 @@ def create_user(request):
     else:
         form = UserCreationForm()
 
-    return render(request, 'antonymapp/create_user.html', {'form': form}) 
+    return render(request, 'antonymapp/create_user.html', {'form': form})
 
 # Helper function to play
 def update_word_data(argument, word_pair):
@@ -61,7 +61,7 @@ def play(request):
 
     word_index = rand_list[user_index-1]
     word_pair = WordPair.objects.get(id=word_index)
- 
+
     if request.method == 'POST':
         form = SomeForm(request.POST)
         if form.is_valid():
@@ -70,8 +70,8 @@ def play(request):
             picked = int(picked[0])
             player = request.user.userprofile
             consensus = word_pair.calc_mean()
-            print consensus
-            print abs(picked-consensus)
+            #print consensus
+            #print abs(picked-consensus)
             score = ((4 - abs(picked-consensus))  ** 3) * 100
             player.score = player.score + score
             player.word_index = user_index + 1
