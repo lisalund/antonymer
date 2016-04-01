@@ -5,7 +5,8 @@ from django.contrib.auth.decorators import login_required  #Adds a decorator for
 # to make use of login_required: add @login_required above the def-line for view.
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
 from django.contrib.auth.models import User
 from .models import UserProfile, WordPair
 from .forms import SomeForm
@@ -28,7 +29,10 @@ def create_user(request):
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password1"]
             new_user = User.objects.create_user(username=username, password=password)
-            #return redirect('play')
+            new_user = authenticate(username=username, password=password)
+            if new_user:
+                auth_login(request, new_user)
+            return redirect('play')
     else:
         form = UserCreationForm()
 
