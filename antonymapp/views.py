@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.utils import timezone
 from django.http import HttpResponse

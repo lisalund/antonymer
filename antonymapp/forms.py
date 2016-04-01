@@ -8,4 +8,4 @@ class SomeForm(forms.Form):
                (3,'Okej'),
                (4,'Rätt bra'),
                (5,'Jättebra'),)
-    picked = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect())
+    Svar = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect())
