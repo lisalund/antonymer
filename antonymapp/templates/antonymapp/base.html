@@ -12,7 +12,7 @@
         <div class="page-header">
         {% if user.is_authenticated %}
             <a href="{% url 'django.contrib.auth.views.logout' %}" class="top-menu"><span class="glyphicon glyphicon-log-out"></span></a>
-            <p class="top-menu">Hello {{user.username}}! <br>Poäng: {{user.userprofile.score}}</p>
+            <p class="top-menu">Hej {{user.username}}! <br>Poäng: {{user.userprofile.score}}</p>
         {% else %}
              <a href="{% url 'django.contrib.auth.views.login' %}" class="top-menu"><span class="glyphicon glyphicon-log-in"></span></a>
         {% endif %}
