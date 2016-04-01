@@ -21,7 +21,7 @@ class WordPair(models.Model):
 	four = models.IntegerField(default=0)
 	five = models.IntegerField(default=0)
 
-	def calc_mean():
+	def calc_mean(self):
 		nominator = self.ones+self.two+self.three+self.four+self.five
 		if nominator != 0 :
 			mean = int(round((self.ones*1+self.two*2+self.three*3+self.four*4+self.five*5)/nominator))
