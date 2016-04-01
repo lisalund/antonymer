@@ -19,8 +19,11 @@ class WordPair(models.Model):
 	five = models.IntegerField(default=0)
 
 	def calc_mean():
-		mean = int(round((ones*1+two*2+three*3+four*4+five*5)/(ones+two+three+four+five)))
-		return mean
+		nominator = self.ones+self.two+self.three+self.four+self.five
+		if nominator != 0 :
+			mean = int(round((self.ones*1+self.two*2+self.three*3+self.four*4+self.five*5)/nominator))
+			return mean
+		return 0
 
 	def __str__(self):
 		return self.word1+" "+self.word2
