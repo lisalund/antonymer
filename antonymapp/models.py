@@ -31,6 +31,7 @@ class WordPair(models.Model):
 class UserProfile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	score = models.IntegerField(default=0)
+	word_index = models.IntegerField(default=0)
 
 
 post_save.connect(save_profile, sender=User)
