@@ -10,6 +10,8 @@ from .models import UserProfile
 from .forms import SomeForm
 from django.template import RequestContext
 
+rand_list = [17, 41, 47, 27, 5, 38, 19, 31, 33, 37, 26, 42, 30, 18, 44, 35, 32, 28, 39, 34, 46, 6, 9, 45, 40, 50, 11, 36, 25, 21, 29, 8, 49, 12, 10, 3, 13, 48, 7, 20, 23, 2, 15, 16, 1, 4, 22, 43, 24, 14]
+
 def index(request):
 	return render(request, 'antonymapp/index.html', {})
 
@@ -43,6 +45,7 @@ def play(request):
             player = request.user.userprofile
             player.score = player.score + picked
             player.save()
+            return redirect('play')
     else:
         form = SomeForm
 
