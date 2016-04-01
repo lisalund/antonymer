@@ -1,0 +1,26 @@
+{% extends 'antonymapp/base.html' %}
+
+{% block content %}
+
+	<h2>Om oss</h2>
+	<p>Vi är två studenter på civilingenjörsprogrammet i datateknik på KTH. Det här är en del i vårt kandidatexamensarbete (A.K.A. kexjobb eller C-uppsats) om gamification och insamling av data till Natural Language Interfaces. </p>
+	<br>
+	<br>
+	<p>Vill du kontakta oss? Maila <a href="mailto:lislund@kth.se">Lisa</a> eller <a href="mailto:oregan@kth.se">Patrick</a>!</p>
+	<br>
+	<br>
+	<p>
+	Tack för att du hjälper oss! <3 <br>
+
+	Lisa och Patrick</p>
+	{% if user.is_authenticated %}
+			<h2><a href="{% url 'play' %}">Spela!</a></h2>
+	{% else %}
+		<p>
+			<a href="{% url 'django.contrib.auth.views.login' %}">Logga in</a>
+		</p>
+		<p>
+			<a href="{% url 'create_user' %}" class="user-text">Skapa användare</a>
+		</p>
+	{% endif %}
+{% endblock %}

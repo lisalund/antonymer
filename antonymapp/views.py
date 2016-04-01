@@ -76,3 +76,6 @@ def play(request):
     else:
         form = SomeForm
     return render(request, 'antonymapp/play.html', {'form':form, 'word_pair':word_pair })
+
+def about(request):
+    return render(request, 'antonymapp/about.html', {})
