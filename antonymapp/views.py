@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.models import User
-from .models import UserProfile, WordPair
+from .models import UserProfile, WordPair1, WordPair2
 from .forms import SomeForm
 from django.template import RequestContext
 
@@ -61,7 +61,7 @@ def play(request):
 
     word_index = rand_list[user_index-1]
 
-    if user.id%2==0:
+    if request.user.id%2==0:
         word_pair = WordPair1.objects.get(id=word_index)
     else:
         word_pair = WordPair2.objects.get(id=word_index)

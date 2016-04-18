@@ -57,5 +57,3 @@ class UserProfile(models.Model):
 
 
 post_save.connect(save_profile, sender=User)
-
-Harrysson, Hjalmarleastander

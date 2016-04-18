@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from antonymapp.models import WordPair
+from antonymapp.models import WordPair1, WordPair2
 
 words1 = ["liten", "smal", "kort", "futtig", "ynklig"];
 words2 = ["stor", "bred", "kolossal", "tung", "enorm"];
