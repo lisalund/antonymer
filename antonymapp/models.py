@@ -20,6 +20,7 @@ class WordPair1(models.Model):
 	three = models.IntegerField(default=0)
 	four = models.IntegerField(default=0)
 	five = models.IntegerField(default=0)
+	word_number = models.IntegerField(default=0)
 
 	def calc_mean(self):
 		nominator = self.ones+self.two+self.three+self.four+self.five
@@ -39,6 +40,7 @@ class WordPair2(models.Model):
 	three = models.IntegerField(default=0)
 	four = models.IntegerField(default=0)
 	five = models.IntegerField(default=0)
+	word_number = models.IntegerField(default=0)
 
 	def calc_mean(self):
 		nominator = self.ones+self.two+self.three+self.four+self.five

@@ -62,9 +62,9 @@ def play(request):
     word_index = rand_list[user_index-1]
 
     if request.user.id%2==0:
-        word_pair = WordPair1.objects.get(id=word_index)
+        word_pair = WordPair1.objects.get(word_number=word_index)
     else:
-        word_pair = WordPair2.objects.get(id=word_index)
+        word_pair = WordPair2.objects.get(word_number=word_index)
  
     if request.method == 'POST':
         form = SomeForm(request.POST)
