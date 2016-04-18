@@ -33,8 +33,8 @@ class Command(BaseCommand):
 				print(s)
 
 	def handle(self, *args, **options):
-		print "\n\n"
-		print "word1 \t word2 \t one \t two \t three \t four \t five \t n \t mean \t std_dev \n"
+		print("\n\n")
+		print("word1 \t word2 \t one \t two \t three \t four \t five \t n \t mean \t std_dev \n")
 		self._for_pairs(word_pairs1)
 		self._for_pairs(word_pairs2)
-		print "\n\n"
+		print("\n\n")
