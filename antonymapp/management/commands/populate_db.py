@@ -11,9 +11,9 @@ class Command(BaseCommand):
     def _create_pairs(self):
         for word1 in words1:
             for word2 in words2:
-                pair = WordPair(word1=word1, word2=word2)
+                pair = WordPair1(word1=word1, word2=word2)
                 pair.save()
-                pair = WordPair(word1=word2, word2=word1)
+                pair = WordPair2(word1=word2, word2=word1)
                 pair.save()
 
     def handle(self, *args, **options):
