@@ -56,7 +56,7 @@ def update_word_data(argument, word_pair):
 @csrf_protect
 def play(request):
     user_index = request.user.userprofile.word_index
-    if user_index >= 26 :
+    if user_index >= 25 :
          return render(request, 'antonymapp/victory.html', {})
 
     word_index = rand_list[user_index-1]
