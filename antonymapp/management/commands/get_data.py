@@ -29,12 +29,12 @@ class Command(BaseCommand):
 			if n>1:
 				mean = (one + 2*two + 3*three + 4*four + 5*five)/(one+two+three+four+five)
 				std = self.std_dev(one, two, three, four, five, n)
-				s = "" + word1[:5] +"\t"+ word2[:5] +"\t"+  str(int(one)) +"\t"+  str(int(two)) +"\t"+  str(int(three)) +"\t"+  str(int(four)) +"\t"+  str(int(five)) +"\t"+  str(int(n)) +"\t"+  str(round(mean,5)) +"\t"+  str(round(std,5))
+				s = "" + word1[:5] +"\t"+ word2[:5] +"\t"+  str(int(one)) +"\t"+  str(int(two)) +"\t"+  str(int(three)) +"\t"+  str(int(four)) +"\t"+  str(int(five)) +"\t"+  str(int(n)) +"\t"+  str(round(mean,5)) +"\t\t"+  str(round(std,5))
 				print(s)
 
 	def handle(self, *args, **options):
 		print("\n\n")
-		print("word1 \t word2 \t one \t two \t three \t four \t five \t n \t mean \t std_dev \n")
+		print("word1 \t word2 \t one \t two \t three \t four \t five \t n \t mean \t\t std_dev \n")
 		self._for_pairs(word_pairs1)
 		self._for_pairs(word_pairs2)
 		print("\n\n")
