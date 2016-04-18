@@ -7,15 +7,16 @@
 		    {{ form.as_p }}
 		    <input type='submit' value='submit'>
 		</form>
-		
+
 	<br>
 	<br>
 	<br>
 	    <a href="{% url 'about' %}">Om oss</a>
 	</div>
 	<div class="col-md-8">
-		 Hur bra motsats &#228;r  <strong>{{ word_pair.word1 }}</strong> till  <strong>{{ word_pair.word2}}</strong>?
-		 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		 Poängen baseras på hur nära du är det genomsnittliga svaret, precis som <a href='https://developers.google.com/recaptcha/'>Googles reCaptcha</a>. 
+		 Hur bra motsats &#228;r  <strong>{{ word_pair.word1 }}</strong> till  <strong>{{ word_pair.word2}}</strong>? Gå på din magkänsla!
+		 <br><br><br><br><br><br><br><br><br><br><br>
+		 <br><br><br><br><br>
+		 Poängen baseras på hur nära du är det genomsnittliga svaret, precis som <a href='https://developers.google.com/recaptcha/'>Googles reCaptcha</a>.
 	</div>
 {% endblock %}

@@ -13,7 +13,7 @@ from .forms import SomeForm
 from django.template import RequestContext
 
 
-rand_list = [20, 9, 3, 17, 10, 12, 6, 1, 15, 14, 19, 5, 7, 2, 11, 25, 18, 4, 22, 24, 21, 8, 23, 13, 16]
+rand_list = [17, 41, 47, 27, 5, 38, 19, 31, 33, 37, 26, 42, 30, 18, 44, 35, 32, 28, 39, 34, 46, 6, 9, 45, 40, 50, 11, 36, 25, 21, 29, 8, 49, 12, 10, 3, 13, 48, 7, 20, 23, 2, 15, 16, 1, 4, 22, 43, 24, 14]
 
 def index(request):
 	return render(request, 'antonymapp/index.html', {})
@@ -41,30 +41,26 @@ def create_user(request):
 # Helper function to play
 def update_word_data(argument, word_pair):
     if argument==1:
-        word_pair.ones += 1
+        word_pair.ones = word_pair.ones + 1
     if argument==2:
-        word_pair.two += 1
+        word_pair.two = word_pair.ones + 1
     if argument==3:
-        word_pair.three += 1
+        word_pair.three = word_pair.ones + 1
     if argument==4:
-        word_pair.four += 1
+        word_pair.four = word_pair.ones + 1
     if argument==5:
-        word_pair.five += 1
+        word_pair.five = word_pair.ones + 1
     word_pair.save()
 
 @login_required
 @csrf_protect
 def play(request):
     user_index = request.user.userprofile.word_index
-    if user_index >= 26 :
+    if user_index >= 51 :
          return render(request, 'antonymapp/victory.html', {})
 
     word_index = rand_list[user_index-1]
-
-    if user.id%2==0:
-        word_pair = WordPair1.objects.get(id=word_index)
-    else:
-        word_pair = WordPair2.objects.get(id=word_index)
+    word_pair = WordPair.objects.get(id=word_index)
  
     if request.method == 'POST':
         form = SomeForm(request.POST)
@@ -86,7 +82,7 @@ def play(request):
     else:
         form = SomeForm
 
-    return render(request, 'antonymapp/play.html', {'form':form, 'word_pair':word_pair, 'index':user_index})
+    return render(request, 'antonymapp/play.html', {'form':form, 'word_pair':word_pair })
 
 def about(request):
     return render(request, 'antonymapp/about.html', {})
