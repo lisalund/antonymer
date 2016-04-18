@@ -30,7 +30,7 @@ class Command(BaseCommand):
 				mean = (one + 2*two + 3*three + 4*four + 5*five)/(one+two+three+four+five)
 				std = self.std_dev(one, two, three, four, five, n)
 				s = "" + word1[:5] +"\t"+ word2[:5] +"\t"+  str(int(one)) +"\t"+  str(int(two)) +"\t"+  str(int(three)) +"\t"+  str(int(four)) +"\t"+  str(int(five)) +"\t"+  str(int(n)) +"\t"+  str(round(mean,5)) +"\t"+  str(round(std,5))
-				print s
+				print(s)
 
 	def handle(self, *args, **options):
 		print "\n\n"
