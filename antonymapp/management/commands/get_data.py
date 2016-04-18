@@ -1,0 +1,37 @@
+from django.core.management.base import BaseCommand, CommandError
+from antonymapp.models import WordPair1, WordPair2
+import math
+
+word_pairs1 = WordPair1.objects.all()
+word_pairs2 = WordPair2.objects.all()
+
+class Command(BaseCommand):
+
+	def std_dev(self, one, two, three, four, five, n):
+		return math.sqrt(self.variance(one,two,three,four,five,n))
+
+	def variance(self, one, two, three, four, five, n):
+		sum_square = one + 4*two + 9*three + 16*four + 25*five
+		square_sum = (one + 2*two + 3*three + 4*four + 5*five)**2
+		variance = (sum_square - square_sum/n)/(n-1)
+		return variance 
+
+	def _for_pairs(self, word_pairs):
+		for pair in word_pairs :
+			word1 = pair.word1
+			word2 = pair.word2 
+			one = float(pair.ones)
+			two = float(pair.two)
+			three = float(pair.three)
+			four = float(pair.four)
+			five = float(pair.five)
+			n = float(one+two+three+four+five)
+			if n>1:
+				mean = (one + 2*two + 3*three + 4*four + 5*five)/(one+two+three+four+five)
+				std = self.std_dev(one, two, three, four, five, n)
+				print "%s \t %s \t %d \t %d \t %d \t %d \t %d \t %d \t %.2f \t %.4f" % (word1[:5], 
+					word2[:5], one, two, three, four, five, n, mean, std)
+
+	def handle(self, *args, **options):
+		self._for_pairs(word_pairs1)
+		self._for_pairs(word_pairs2)
