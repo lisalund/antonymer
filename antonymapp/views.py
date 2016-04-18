@@ -74,8 +74,8 @@ def play(request):
             picked = int(picked[0])
             player = request.user.userprofile
             consensus = word_pair.calc_mean()
-            print consensus
-            print abs(picked-consensus)
+            print (consensus)
+            print (abs(picked-consensus))
             score = ((4 - abs(picked-consensus))  ** 3) * 100
             player.score = player.score + score
             player.word_index = user_index + 1
