@@ -83,8 +83,9 @@ def play(request):
             return redirect('play')
     else:
         form = SomeForm
+        send_index = user_index + 1
 
-    return render(request, 'antonymapp/play.html', {'form':form, 'word_pair':word_pair, 'index':user_index})
+    return render(request, 'antonymapp/play.html', {'form':form, 'word_pair':word_pair, 'index':send_index})
 
 def about(request):
     return render(request, 'antonymapp/about.html', {})
