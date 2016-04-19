@@ -111,7 +111,7 @@ class Command(BaseCommand):
 					non_extreme += 1
 		print()
 		print("data for chi square test")
-		print("extreme values: "+extreme)
-		print("non extreme values: "+non_extreme)
-		print("total"+total)
+		print("extreme values: "+ str(extreme))
+		print("non extreme values: "+ str(non_extreme))
+		print("total"+ str(total))
 
