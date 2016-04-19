@@ -57,7 +57,7 @@ class Command(BaseCommand):
 			pair1 = word_pairs[0].get(word_number=i)
 			word1 = pair1.word1[:4]
 			word2 = pair1.word2[:4]
-			#print(word1 + " " + word2 + " ", end="")
+			print(word1 + " " + word2 + " ", end="")
 			for j in range(1,26):
 				pair2 = word = word_pairs[0].get(word_number=j)
 				Y_1 = self.freq_to_list(pair1)
@@ -72,11 +72,11 @@ class Command(BaseCommand):
 			pair1 = word_pairs[0].get(word_number=i)
 			word1 = pair1.word1[:4]
 			word2 = pair1.word2[:4]
-			print(word1 + " " + word2 + " ", end="")
+			#print(word1 + " " + word2 + " ", end="")
 			for j in range(1,26):
 				pair2 = word = word_pairs[0].get(word_number=j)
 				Y_1 = self.freq_to_list(pair1)
 				Y_2 = self.freq_to_list(pair2)
 				W, p = levene(Y_1, Y_2)
-				print(',{0:.2f}'.format(p), end="")
+				print(' {0:.2f}'.format(p), end="")
 			print()
