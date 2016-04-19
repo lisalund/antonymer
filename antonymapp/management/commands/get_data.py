@@ -2,9 +2,8 @@ from __future__ import print_function
 from django.core.management.base import BaseCommand, CommandError
 from antonymapp.models import WordPair1, WordPair2
 import math
-from scipy.stats import levene, wilcoxon
+from scipy.stats import levene, wilcoxon, bartlett
 from numpy import mean, std
-from scipy import stats
 
 word_pairs1 = WordPair1.objects.all()
 word_pairs2 = WordPair2.objects.all()
@@ -47,7 +46,7 @@ class Command(BaseCommand):
 					mean2 += [mean_value]
 				print("%s \t %s \t %d \t %.5f \t %.5f" % (word1, word2, n, mean_value, std_value))
 
-		W, p = stats.wilcoxon(mean1,mean2)
+		W, p = wilcoxon(mean1,mean2)
 		print()
 		print("Wilcoxon returns W = %.5f, and p = %.5f" % (W,p))
 		print("Can not reject null hypothesis since p>0.1")
@@ -62,7 +61,7 @@ class Command(BaseCommand):
 				pair2 = word = word_pairs[0].get(word_number=j)
 				Y_1 = self.freq_to_list(pair1)
 				Y_2 = self.freq_to_list(pair2)
-				W, p = levene(Y_1, Y_2)
+				W, p = bartlett(Y_1, Y_2)
 				print('{0:.2f}'.format(W) + ",", end="")
 			print()
 		print()
@@ -76,6 +75,6 @@ class Command(BaseCommand):
 				pair2 = word = word_pairs[0].get(word_number=j)
 				Y_1 = self.freq_to_list(pair1)
 				Y_2 = self.freq_to_list(pair2)
-				W, p = levene(Y_1, Y_2)
+				W, p = bartlett(Y_1, Y_2)
 				print('{0:.2f}'.format(p) + ",", end="")
 			print()
