@@ -115,7 +115,7 @@ class Command(BaseCommand):
 		print("non extreme values: "+ str(non_extreme))
 		print("total"+ str(total))
 
-		C, p,ddof, expected = chi2_contingency([[extreme, 30],[non_extreme, 45]])
+		C, p,ddof, expected = chi2_contingency([[extreme, 497],[non_extreme, 864]])
 		print(C)
 		print(p)
 		print(ddof)
