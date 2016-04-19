@@ -63,7 +63,7 @@ class Command(BaseCommand):
 				Y_1 = self.freq_to_list(pair1)
 				Y_2 = self.freq_to_list(pair2)
 				W, p = levene(Y_1, Y_2)
-				print('{0:.2f}'.format(W) + ",", end="")
+				print(',{0:.2f}'.format(W), end="")
 			print()
 
 		print()
@@ -78,5 +78,5 @@ class Command(BaseCommand):
 				Y_1 = self.freq_to_list(pair1)
 				Y_2 = self.freq_to_list(pair2)
 				W, p = levene(Y_1, Y_2)
-				print('{0:.2f}'.format(p) + ",", end="")
+				print(',{0:.2f}'.format(p), end="")
 			print()
