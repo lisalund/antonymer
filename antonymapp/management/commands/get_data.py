@@ -53,7 +53,7 @@ class Command(BaseCommand):
 		else :
 			W = "denominator = 0"
 
-		print W
+		print(W)
 
 	def std_dev(self, one, two, three, four, five, n):
 		return math.sqrt(self.variance(one,two,three,four,five,n))
