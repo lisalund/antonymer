@@ -52,8 +52,7 @@ class Command(BaseCommand):
 			W = (sum(N)-2)*nominator/denominator
 		else :
 			W = "denominator = 0"
-
-		print(W)
+		print (word_pair2.word1[:5] +"\t"+ word_pair2.word2[:5] +"\t"+ W)
 
 	def std_dev(self, one, two, three, four, five, n):
 		return math.sqrt(self.variance(one,two,three,four,five,n))
