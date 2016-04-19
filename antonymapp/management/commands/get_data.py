@@ -2,7 +2,7 @@ from __future__ import print_function
 from django.core.management.base import BaseCommand, CommandError
 from antonymapp.models import WordPair1, WordPair2
 import math
-from scipy.stats import levene, wilcoxon
+from scipy.stats import levene, wilcoxon, chi2_contingency
 from numpy import mean, std
 from scipy import stats
 
@@ -115,3 +115,9 @@ class Command(BaseCommand):
 		print("non extreme values: "+ str(non_extreme))
 		print("total"+ str(total))
 
+		C, p,ddof, expected = chi2_contingency([[extreme, 30],[non_extreme, 45]])
+		print(C)
+		print(p)
+		print(ddof)
+		print(expected)
+#		print("chisquare returns C = %.5f, and p = %.5f" % (C,p))
