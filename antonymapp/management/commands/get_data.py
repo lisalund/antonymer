@@ -63,7 +63,7 @@ class Command(BaseCommand):
 				Y_1 = self.freq_to_list(pair1)
 				Y_2 = self.freq_to_list(pair2)
 				W, p = levene(Y_1, Y_2)
-				print(' {0:.2f}'.format(W), end="")
+				#print(' {0:.2f}'.format(W), end="")
 			print()
 
 		print()
@@ -72,7 +72,7 @@ class Command(BaseCommand):
 			pair1 = word_pairs[0].get(word_number=i)
 			word1 = pair1.word1[:4]
 			word2 = pair1.word2[:4]
-			#print(word1 + " " + word2 + " ", end="")
+			print(word1 + " " + word2 + " ", end="")
 			for j in range(1,26):
 				pair2 = word = word_pairs[0].get(word_number=j)
 				Y_1 = self.freq_to_list(pair1)
@@ -80,3 +80,38 @@ class Command(BaseCommand):
 				W, p = levene(Y_1, Y_2)
 				print(' {0:.2f}'.format(p), end="")
 			print()
+
+		## Time for chi squared
+		pairs = []
+		pairs += [word_pairs[0].get(word1="kort",word2="kolossal")]
+		pairs += [word_pairs[0].get(word1="smal",word2="bred")]
+		pairs += [word_pairs[0].get(word1="liten",word2="enorm")]
+		pairs += [word_pairs[0].get(word1="kort",word2="stor")]
+		pairs += [word_pairs[0].get(word1="futtig",word2="bred")]
+		pairs += [word_pairs[0].get(word1="liten",word2="tung")]
+		pairs += [word_pairs[1].get(word1="bred",word2="futtig")]
+		pairs += [word_pairs[1].get(word1="enorm",word2="liten")]
+		pairs += [word_pairs[1].get(word1="bred",word2="liten")]
+		pairs += [word_pairs[1].get(word1="bred",word2="kort")]
+		pairs += [word_pairs[1].get(word1="kolossal",word2="ynklig")]
+		pairs += [word_pairs[1].get(word1="stor",word2="futtig")]
+		pairs += [word_pairs[1].get(word1="enorm",word2="smal")]
+		pairs += [word_pairs[1].get(word1="tung",word2="smal")]
+		pairs += [word_pairs[1].get(word1="bred",word2="smal")]
+		extreme = 0
+		non_extreme = 0
+		total = 0
+		for pair in pairs:
+			pair_values = self.freq_to_list(pair)
+			for num in pair_values:
+				total += 1
+				if (num==1 or num==5):
+					extreme += 1
+				else:
+					non_extreme += 1
+		print()
+		print("data for chi square test")
+		print("extreme values: "+extreme)
+		print("non extreme values: "+non_extreme)
+		print("total"+total)
+
